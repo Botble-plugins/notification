@@ -8,6 +8,7 @@ Route::group([
     'namespace' => 'Botble\Notification\Http\Controllers\Apis'
 ], function () {
     Route::get('/', 'NotificationController@index');
+    Route::post('/', 'NotificationController@store');
     Route::put('/{notification}', 'NotificationController@readNotification');
     Route::delete('/{notification}', 'NotificationController@destroy');
 });

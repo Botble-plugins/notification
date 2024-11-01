@@ -24,6 +24,11 @@ Go to the **Admin Panel** and click on the **Plugins** tab. Click on the **Add n
 ![Demo](./art/demo.gif)
 
 In admin panel, go to `Settings` -> `Common` -> `Notifications` to manage the configration.
+To Enable Api notifications:-
+   1- go to `Settings` -> `API Settings`  enable it.
+   2- run `php artisan scribe:generate` then visit the `{url}/docs`.
+   3- navigate to `notifications tab`
+   4- to store new notification send notifiable_id & notifiable_type
 
 You can request support for more forms by creating an issue on the [GitHub repository](../../issues).
 

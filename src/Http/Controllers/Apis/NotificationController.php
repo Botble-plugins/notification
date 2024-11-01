@@ -3,6 +3,7 @@
 namespace Botble\Notification\Http\Controllers\Apis;
 
 use Botble\Base\Http\Controllers\BaseController;
+use Botble\Notification\Http\Requests\Apis\NotificationRequest;
 use Botble\Notification\Http\Resources\NotificationResource;
 use Botble\Notification\Models\Notification;
 use Botble\Notification\Services\NotificationService;
@@ -25,14 +26,15 @@ class NotificationController extends BaseController
                 ->toApiResponse();
     }
 
-    public function destroy(Notification $notification)
+    public function store(NotificationRequest $request, NotificationService $notificationService)
     {
-        $notification->delete();
+        $NotificationResource = $notificationService->store($request->validated());
 
         return $this
-            ->httpResponse()
-            ->withDeletedSuccessMessage()
-            ->toApiResponse();
+                ->httpResponse()
+                ->setData(new NotificationResource($NotificationResource))
+                ->withCreatedSuccessMessage()
+                ->toApiResponse();
     }
 
     public function readNotification(Notification $notification)
@@ -43,6 +45,16 @@ class NotificationController extends BaseController
         return $this
             ->httpResponse()
             ->withUpdatedSuccessMessage()
+            ->toApiResponse();
+    }
+
+    public function destroy(Notification $notification)
+    {
+        $notification->delete();
+
+        return $this
+            ->httpResponse()
+            ->withDeletedSuccessMessage()
             ->toApiResponse();
     }
 }
