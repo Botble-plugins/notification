@@ -1,0 +1,11 @@
+{
+    "id": "omarbotble/Notification",
+    "name": "Notification",
+    "namespace": "Botble\\Notification\\",
+    "provider": "Botble\\Notification\\Providers\\NotificationServiceProvider",
+    "author": "Omar Adel",
+    "url": "https://github.com/Botble-plugins",
+    "version": "1.0.0",
+    "description": "manage notifications for multiple users across platform mobile&website",
+    "minimum_core_version": "7.3.5"
+}
